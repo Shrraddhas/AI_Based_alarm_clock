@@ -11,30 +11,36 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class EyesTracker extends Tracker<Face> {
     private final float THRESHOLD = 0.75f;
-    private Context context;
+    private EyeStateListener listener;
 
-    public EyesTracker(Context context) {
-        this.context = context;
+    public EyesTracker(Context context, EyeStateListener listener) {
+        this.listener = listener;
     }
 
     @Override
     public void onUpdate(Detector.Detections<Face> detections, Face face) {
         if (face.getIsLeftEyeOpenProbability() > THRESHOLD || face.getIsRightEyeOpenProbability() > THRESHOLD) {
-            Log.i(TAG, "onUpdate: Open Eyes Detected");
-            ((MainActivity)context).updateMainView(Condition.USER_EYES_OPEN);
+            Log.i(TAG, "onUpdate: Eyes Open");
+            if (listener != null) {
+                listener.onEyeStateChanged(Condition.USER_EYES_OPEN);
+            }
         }
         else {
-            Log.i(TAG, "onUpdate: Close Eyes Detected");
-            ((MainActivity)context).updateMainView(Condition.USER_EYES_CLOSED);
-        }
+                Log.i(TAG, "onUpdate: Eyes Closed");
+                if (listener != null) {
+                    listener.onEyeStateChanged(Condition.USER_EYES_CLOSED);
+                }
+            }
     }
 
     @Override
     public void onMissing(Detector.Detections<Face> detections) {
         super.onMissing(detections);
 
-        Log.i(TAG, "onUpdate: Face Not Detected!");
-        ((MainActivity)context).updateMainView(Condition.FACE_NOT_FOUND);
+        Log.i(TAG, "onUpdate: Face Not Found!");
+        if (listener != null) {
+            listener.onEyeStateChanged(Condition.FACE_NOT_FOUND);
+        }
     }
 
     @Override
