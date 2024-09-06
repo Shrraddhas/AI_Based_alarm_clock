@@ -1,11 +1,11 @@
-![image](https://github.com/user-attachments/assets/58a8cd16-4dfa-4cd5-9250-caf06a34fbc4)#AI-Based Alarm Clock
+AI-Based Alarm Clock
 An intelligent alarm clock that uses eye-tracking technology to determine when you are awake and dismisses the alarm accordingly.
 
-#Features
+Features
 Eye-Tracking Technology: Uses advanced algorithms to detect whether your eyes are open or closed.
 Customizable Alarm Sounds: Choose your preferred alarm sounds from provided options.
 User-Friendly Interface: Simple and intuitive UI for easy configuration and use.
-#Installation
+Installation
 To get started with the AI-Based Alarm Clock project, follow these steps:
 
 Clone the Repository:
@@ -14,14 +14,14 @@ bash
 Copy code
 git clone https://github.com/Shrraddhas/AI_Based_alarm_clock.git
 
-#Navigate to the Project Directory:
+Navigate to the Project Directory:
 
 bash
 Copy code
 cd AI_Based_alarm_clock
 Install Dependencies: Ensure you have the required dependencies installed. If you’re using Android Studio, the dependencies will be handled via Gradle.
 
-#Build and Run the Application:
+Build and Run the Application:
 
 Open the project in Android Studio.
 Click on Build > Make Project.
@@ -34,7 +34,7 @@ Start the Alarm: The app will use eye-tracking to monitor if you are awake and d
 Contributing
 Contributions are welcome! If you have any improvements or bug fixes, please follow these steps:
 
-#Fork the Repository.
+Fork the Repository.
 Create a New Branch:
 bash
 Copy code
